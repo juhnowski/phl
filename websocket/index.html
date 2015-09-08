@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        var myMap, 
+            myPlacemark;
+
+        function init(){ 
+            myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 7
+            }); 
+            
+            myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+                hintContent: '12:45 Холодильник в Тушино',
+                balloonContent: '2500руб Тел.8-902-7-800-807'
+            });
+
+            myPlacemark1 = new ymaps.Placemark([56.34721, 43.932163], {
+                hintContent: ' С 15:45 Два мешка картошки, второй этаж',
+                balloonContent: '3000руб. Тел.8-902-7-800-123 Илья'
+            });
+
+            myPlacemark2 = new ymaps.Placemark([56.345399, 43.922066], {
+                hintContent: ' Пт в любое время, мотоцикл со штрафстоянки',
+                balloonContent: '1000руб. Тел.8-912-7-833-123 Семен'
+            });
+
+            myPlacemark3 = new ymaps.Placemark([56.338305, 43.954809], {
+                hintContent: ' Срочно, стройматериалы, доски',
+                balloonContent: '1000руб. Тел.8-952-7-833-123 Никита Сергеевич'
+            });
+            
+            myPlacemark4 = new ymaps.Placemark([56.249271, 43.570223], {
+                hintContent: ' Хладоген, бочка, в Зеленоград',
+                balloonContent: '15000руб. Тел.8-952-7-833-123 ООО "Фрион"'
+            });
+
+            myPlacemark5 = new ymaps.Placemark([55.91747, 39.184935], {
+                hintContent: 'Пряники, в Нижний Новгорол, Бор',
+                balloonContent: '10000руб. Тел.8-952-7-833-123 ООО "Покровский пряник"'
+            });
+
+
+            myMap.geoObjects.add(myPlacemark);
+            myMap.geoObjects.add(myPlacemark1);
+            myMap.geoObjects.add(myPlacemark2);
+            myMap.geoObjects.add(myPlacemark3);
+            myMap.geoObjects.add(myPlacemark4);
+            myMap.geoObjects.add(myPlacemark5);
+
+        }
+    </script>
+</head>
+<body>
+
+<body>
+    <div id="map" style="width: 827px; height: 400px"></div>
+</body>
+
+<!-- форма для отправки сообщений -->
+<form name="publish">
+<a>По всем вопросам вы можете связаться с оператором:</a>
+  <input type="text"  width="100%" name="message"/>
+  <input type="submit" value="Отправить"/>
+</form>
+
+<!-- здесь будут появляться входящие сообщения -->
+<div id="subscribe"></div>
+
+<script src="browser.js"></script>
+
+</body>
+</html>
